@@ -23,10 +23,9 @@ echo $birthday=$_POST['birthday'];
 echo "<br>";
 echo $email=$_POST['email'];
 
-//insert into user() values();
-$dsn="mysql:host=localhost;charset=utf8;dbname=mydb";
-$pdo=new PDO($dsn,'root','iamdoris19930303');
 
+include "connect.php";
+//insert into user() values();
 $sql="insert into user (`acc`,`pw`,`name`,`addr`,`tel`,`birthday`,`email`)
  values ('$acc','$pw','$name','$addr','$tel','$birthday','$email')";
 echo "sql的語法是:".$sql;

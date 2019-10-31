@@ -15,12 +15,13 @@ echo "acc=".$acc;
 echo "<br>";
 echo "pw=".$pw;
 
-$dsn="mysql:host=localhost;charset=utf8;dbname=mydb";
-$pdo=new PDO($dsn,'root','iamdoris19930303');
+include "connect.php";
 
 // for A & B
 // $sql="select * from user where acc='$acc' && pw='$pw'";
-$sql="select count(*) as 'r' from user where acc='$acc' && pw='$pw'";
+// for C
+// $sql="select count(*) as 'r' from user where acc='$acc' && pw='$pw'";
+$sql="select id from user where acc='$acc' && pw='$pw'";
 
 // for A & B & C
 // fetch() 回傳陣列  fetchColumn() 回傳true或false/1或0
@@ -53,8 +54,12 @@ print_r($data);
 // D最簡單判斷式(判斷true或false/1或0)
 if($data){
   echo "登入成功";
+  $_SESSION['login']=1;
+  $_SESSION['id']=$data['id'];
+  header("location:member_center.php?");
 }else{
   echo "登入失敗";
+  header("location:index.php?err=1");
 }
 
 ?>

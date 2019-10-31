@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+if(!empty($_SESSION['login'])){
+  header("location:member_center.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +21,9 @@
 <?php
   if(!empty($_GET['s'])){
     echo "註冊成功，請重新登入:)";
+  }
+  if(!empty($_GET['err'])){
+    echo "帳號或密碼不對耶:(";
   }
 ?>
 
