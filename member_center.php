@@ -29,11 +29,11 @@
       <?php
         include "connect.php";
 
-        if(empty($_SESSION['login'])){
+        if(empty($_COOKIE['login'])){
           exit();
         }
 
-        $sql="select * from user where id='".$_SESSION['id']."'";
+        $sql="select * from user where id='".$_COOKIE['id']."'";
         // echo $sql;
         $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
         // print_r($user);

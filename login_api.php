@@ -54,8 +54,11 @@ print_r($data);
 // D最簡單判斷式(判斷true或false/1或0)
 if($data){
   echo "登入成功";
-  $_SESSION['login']=1;
-  $_SESSION['id']=$data['id'];
+  // $_SESSION['login']=1;
+  // $_SESSION['id']=$data['id'];
+  // 建立 COOKIE
+  setcookie("login",1,time()+3600);
+  setcookie("id",$data['id'],time()+3600);
   header("location:member_center.php?");
 }else{
   echo "登入失敗";
