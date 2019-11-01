@@ -56,7 +56,7 @@ if($data){
   echo "登入成功";
   $_SESSION['login']=1;
   $_SESSION['id']=$data['id'];
-  header("location:member_center.php?");
+  header("location:member_center.php");
 }else{
   echo "登入失敗";
   header("location:index.php?err=1");
