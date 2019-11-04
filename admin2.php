@@ -2,8 +2,9 @@
 
 include_once "connect.php";
 
-$sql="select * from user ";
-$row=$pdo->query($sql)->fetchALL(); //取出全部資料
+$row=all("user");
+// $sql="select * from user ";
+// $row=$pdo->query($sql)->fetchALL(); //取出全部資料
 
 
 ?>

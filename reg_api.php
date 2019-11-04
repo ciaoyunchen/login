@@ -9,32 +9,26 @@
  * 6.判斷SQL語法是否執行成功，執行下一步
  ***************************************************/
 
-echo $acc=$_POST['acc'];
-echo "<br>";
-echo $pw=$_POST['pw'];
-echo "<br>";
-echo $name=$_POST['name'];
-echo "<br>";
-echo $addr=$_POST['addr'];
-echo "<br>";
-echo $tel=$_POST['tel'];
-echo "<br>";
-echo $birthday=$_POST['birthday'];
-echo "<br>";
-echo $email=$_POST['email'];
+$data['acc']=$_POST['acc'];
+$data['pw']=$_POST['pw'];
+$data['name']=$_POST['name'];
+$data['addr']=$_POST['addr'];
+$data['tel']=$_POST['tel'];
+$data['birthday']=$_POST['birthday'];
+$data['email']=$_POST['email'];
 
 
 include "connect.php";
 //insert into user() values();
-$sql="insert into user (`acc`,`pw`,`name`,`addr`,`tel`,`birthday`,`email`)
- values ('$acc','$pw','$name','$addr','$tel','$birthday','$email')";
-echo "sql的語法是:".$sql;
+//$sql="insert into user (`acc`,`pw`,`name`,`addr`,`tel`,`birthday`,`email`)
+// values ('$acc','$pw','$name','$addr','$tel','$birthday','$email')";
+//echo "sql的語法是:".$sql;
 
 //$pdo->exec($sql) exec執行:用在不需要回傳資料的場景(可用參數del,update,insert)
 //$pdo->query($sql) query查詢:用在需要回傳資料的場景
 
 //判斷是否新增成功
-if($pdo->exec($sql)){
+if(insert("user",$data)){
     // echo "新增資料成功";
     header("location:index.php?s=1");
 }else{

@@ -25,8 +25,8 @@ $sql="select id from user where acc='$acc' && pw='$pw'";
 
 // for A & B & C
 // fetch() 回傳陣列  fetchColumn() 回傳true或false/1或0
-// $data= $pdo->query($sql)->fetch();
-$data= $pdo->query($sql)->fetchColumn();
+$data= $pdo->query($sql)->fetch();
+// $data= $pdo->query($sql)->fetchColumn();
 
 print_r($data);
 
@@ -52,7 +52,7 @@ print_r($data);
 // }
 
 // D最簡單判斷式(判斷true或false/1或0)
-if($data){
+if(!empty($data)){
   echo "登入成功";
   $_SESSION['login']=1;
   $_SESSION['id']=$data['id'];

@@ -43,6 +43,7 @@
         
       ?>
 
+      <form action="edit_user.php" method="post">
       <table>
         <tr>
           <td>會員編號</td>
@@ -58,26 +59,32 @@
         </tr>
         <tr>
           <td>姓名</td>
-          <td><?=$user['name'];?></td>
+          <td><input type="text" name="name" id="name" value="<?=$user['name'];?>"></td>
         </tr>
         <tr>
           <td>地址</td>
-          <td><?=$user['addr'];?></td>
+          <td><input type="text" name="addr" id="addr" value="<?=$user['addr'];?>"></td>
         </tr>
         <tr>
           <td>電話</td>
-          <td><?=$user['tel'];?></td>
+          <td><input type="text" name="tel" id="tel" value="<?=$user['tel'];?>"></td>
         </tr>
         <tr>
           <td>生日</td>
-          <td><?=$user['birthday'];?></td>
+          <td><input type="text" name="birthday" id="birthday" value="<?=$user['birthday'];?>"></td>
         </tr>
         <tr>
           <td>電子郵件</td>
-          <td><?=$user['email'];?></td>
+          <td><input type="text" name="email" id="email" value="<?=$user['email'];?>"></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="hidden" name="id" value="<?=$user['id'];?>">
+            <input type="submit" value="編輯">
+          </td>
         </tr>
       </table>
-
+      </form>
 
 
     </div>
